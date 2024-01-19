@@ -99,8 +99,8 @@
 //    console.log(`Mark's BMI ${BMIMark} is higher than John's ${BMIJohn}!`);
 // }
 
-// const age = 30;
-// if (age !== 30) console.log("Pablo");
+const age = 30;
+if (age !== 30) console.log("Pablo");
 
 const day = 'saturday';
 
