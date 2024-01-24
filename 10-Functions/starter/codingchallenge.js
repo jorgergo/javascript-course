@@ -12,9 +12,10 @@ GOOD LUCK 😀
 */
 (function () {
   const header = document.querySelector('h1');
-  header.style.color = 'red';
+  const body = document.querySelector('body')
 
-  document.querySelector('body').addEventListener('click', function () {
-    header.style.color = 'blue';
-  });
+  header.style.color = 'red';
+  body.addEventListener('click', () => header.style.color = 'blue')
 })();
+
+// The addEventListener() function receives a callback function that changes the color of the header. Here, even if the function is an IIFE, which means it returns immediatly, the addEventListener callback function continues to have acces to the variable header, which should't exist since the IIFE, has already returned and it's execution context doesn't exist anymore. However, it still accesses the variable header, and uses it to manipulate the DOM, because the CLOSURE of the callback function remembers all the variables in the variable environment where the callback function was created, in this case the IIFE's variable environment.
