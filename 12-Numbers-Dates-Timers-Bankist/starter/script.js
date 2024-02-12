@@ -91,9 +91,8 @@ const displayMovements = function (movements, sort = false) {
 
     const html = `
       <div class="movements__row">
-        <div class="movements__type movements__type--${type}">${
-      i + 1
-    } ${type}</div>
+        <div class="movements__type movements__type--${type}">${i + 1
+      } ${type}</div>
         <div class="movements__value">${mov}€</div>
       </div>
     `;
@@ -164,11 +163,10 @@ btnLogin.addEventListener('click', function (e) {
   );
   console.log(currentAccount);
 
-  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+  if (currentAccount?.pin === +inputLoginPin.value) {
     // Display UI and message
-    labelWelcome.textContent = `Welcome back, ${
-      currentAccount.owner.split(' ')[0]
-    }`;
+    labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]
+      }`;
     containerApp.style.opacity = 100;
 
     // Clear input fields
@@ -182,7 +180,7 @@ btnLogin.addEventListener('click', function (e) {
 
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
-  const amount = Number(inputTransferAmount.value);
+  const amount = +inputTransferAmount.value;
   const receiverAcc = accounts.find(
     acc => acc.username === inputTransferTo.value
   );
@@ -206,7 +204,7 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
-  const amount = Number(inputLoanAmount.value);
+  const amount = +inputLoanAmount.value;
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
@@ -223,7 +221,7 @@ btnClose.addEventListener('click', function (e) {
 
   if (
     inputCloseUsername.value === currentAccount.username &&
-    Number(inputClosePin.value) === currentAccount.pin
+    +inputClosePin.value === currentAccount.pin
   ) {
     const index = accounts.findIndex(
       acc => acc.username === currentAccount.username
@@ -251,3 +249,38 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+// console.log(23 === 23.0);
+
+// // Base 10 - 0 to 9;   1/10 = 0.1    3/10 = 3.33333
+
+// // Binary Base 2 - 0 to 1;
+
+// console.log(0.1 + 0.2);
+// console.log(0.1 + 0.2 === 0.3);
+
+// // Conversion
+// console.log(Number('23'));
+
+// console.log(+ '23');
+
+// // Parsing
+
+// console.log(Number.isInteger(2.4));
+
+
+
+// const now = new Date();
+// console.log(now);
+
+// console.log(new Date('Sat Feb 03 2024 00:04:25'));
+// console.log(new Date('December 24, 2015'));
+
+// console.log(new Date(account1.movementsDates[0]));
+
+// console.log(new Date(2023, 10, 19, 15, 23, 5));
+
+
+setTimeout(() => console.log('Here is your pizza 🍕'), 3000);
+
+console.log('pablo');
