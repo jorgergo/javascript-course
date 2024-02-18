@@ -20,7 +20,7 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 
-btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal))
+btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
 
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
@@ -30,8 +30,6 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
-
-
 
 // Button scrolling
 
@@ -43,7 +41,11 @@ btnScrollTo.addEventListener('click', function (e) {
 
   console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
 
-  console.log('Height/Width viewport', document.documentElement.clientHeight, document.documentElement.clientWidth);
+  console.log(
+    'Height/Width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
 
   // Scrolling
   // window.scrollTo(s1coords.left + window.pageXOffset, s1coords.top + window.pageYOffset);
@@ -73,18 +75,15 @@ btnScrollTo.addEventListener('click', function (e) {
 // 2. Determine what element originated the event.
 
 document.querySelector('.nav__links').addEventListener('click', function (e) {
-
   e.preventDefault();
 
   if (e.target.classList.contains('nav__link')) {
     const id = e.target.getAttribute('href');
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' })
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   }
-})
+});
 
-
-
-
+/*
 const h1 = document.querySelector('h1');
 
 // Going downwards: Child - Children
@@ -117,7 +116,7 @@ console.log(h1.parentElement.children);
 [...h1.parentElement.children].forEach(function (el) {
   if (el !== h1) el.style.transform = 'scale(0.5)'
 })
-
+/*
 /*
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
